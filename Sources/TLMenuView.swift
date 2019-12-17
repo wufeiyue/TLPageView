@@ -174,7 +174,13 @@ extension TLMenuView {
             let y : CGFloat = 0
             
             let title = titles![i]
-            w = (title as NSString).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : configuration.menuItemFont], context: nil).width
+            if configuration.isFillEquallyItemWidth {
+                /// 忽略leftItem和rightItem
+                w = titleLabels.isEmpty ? bounds.width : bounds.width / CGFloat(titleLabels.count) - configuration.menuItemMargin
+            }
+            else {
+                w = (title as NSString).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : configuration.menuItemFont], context: nil).width
+            }
             
             if i == 0 {
                 x = configuration.menuItemMargin * 0.5

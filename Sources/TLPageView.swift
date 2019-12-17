@@ -19,7 +19,7 @@ public class TLPageView: UIView {
     var configuration  = TLPageViewConfiguration()
     
     // MARK: - 属性
-    var currentIndex: Int = 0 {
+    public var currentIndex: Int = 0 {
         didSet {
             if currentIndex < 0 {
                 currentIndex = 0
@@ -29,9 +29,10 @@ public class TLPageView: UIView {
             }
         }
     }
-    var pengdingViewController : UIViewController?
     
-    var titles: [String] = []
+    public var pengdingViewController : UIViewController?
+    
+    public var titles: [String] = []
     
     var childControllers: [UIViewController] = []
     

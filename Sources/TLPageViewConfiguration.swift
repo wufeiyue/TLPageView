@@ -27,5 +27,9 @@ public class TLPageViewConfiguration {
     open var separatorLineColor : UIColor = UIColor(red: 245 / 255.0, green: 245 / 255.0, blue: 245 / 255.0, alpha: 1)
     open var separatorLineHeight : CGFloat = 1
     open var menuBackgroundColor: UIColor = .white
+    
+    /// 是否平分item的宽度
+    open var isFillEquallyItemWidth: Bool = false
+    
     public init() { }
 }
