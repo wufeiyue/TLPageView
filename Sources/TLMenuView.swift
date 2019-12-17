@@ -292,23 +292,25 @@ extension TLMenuView {
         // 3.记录下标值
         currentIndex = targetIndex
         
-        // 4.调整位置
-        // 当前偏移量
-        var offsetX = targetLabel.center.x - scrollView.frame.size.width * 0.5
-        if offsetX < 0 {
-            offsetX = 0
+        if !configuration.isFillEquallyItemWidth {
+            // 4.调整位置
+            // 当前偏移量
+            var offsetX = targetLabel.center.x - scrollView.frame.size.width * 0.5
+            if offsetX < 0 {
+                offsetX = 0
+            }
+            // 最大偏移量
+            var maxOffsetX = scrollView.contentSize.width - scrollView.frame.size.width
+            
+            if maxOffsetX < 0 {
+                maxOffsetX = 0
+            }
+            
+            if offsetX > maxOffsetX {
+                offsetX = maxOffsetX
+            }
+            scrollView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
         }
-        // 最大偏移量
-        var maxOffsetX = scrollView.contentSize.width - scrollView.frame.size.width
-        
-        if maxOffsetX < 0 {
-            maxOffsetX = 0
-        }
-        
-        if offsetX > maxOffsetX {
-            offsetX = maxOffsetX
-        }
-        scrollView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
     }
 }
 

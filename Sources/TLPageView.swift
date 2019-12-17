@@ -12,11 +12,17 @@ protocol TLPageViewDelegate: class {
     func pageView(_ pageView: TLPageView, targetIndex: Int)
 }
 
+public protocol PageViewDelegate: class {
+    func willScroll(_ pageView: TLPageView, index: Int)
+}
+
 public class TLPageView: UIView {
     weak var tlPageViewDelegate: TLPageViewDelegate?
     
     // MARK: - Configuration
     var configuration  = TLPageViewConfiguration()
+    
+    public weak var delegate: PageViewDelegate?
     
     // MARK: - 属性
     public var currentIndex: Int = 0 {

@@ -60,6 +60,7 @@ extension TLPageView : UIPageViewControllerDelegate {
                 if pengdingViewController == vc {
                     currentIndex = index
                     tlPageViewDelegate?.pageView(self, targetIndex: currentIndex)
+                    delegate?.willScroll(self, index: currentIndex)
                     break
                 }
             }
