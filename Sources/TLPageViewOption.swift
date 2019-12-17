@@ -26,4 +26,6 @@ public enum TLPageViewOption {
     case separatorLineHeight(CGFloat)
     
     case menuBackgroundColor(UIColor)
+    
+    case fillEquallyItemWidth(Bool)
 }

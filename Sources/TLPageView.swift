@@ -162,6 +162,8 @@ extension TLPageView {
                 configuration.separatorLineHeight = value
             case let .menuBackgroundColor(value):
                 configuration.menuBackgroundColor = value
+            case let .fillEquallyItemWidth(value):
+                configuration.isFillEquallyItemWidth = value
             }
         }
     }
