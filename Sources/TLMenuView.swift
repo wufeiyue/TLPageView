@@ -191,14 +191,14 @@ extension TLMenuView {
             
             if i == currentIndex {
                 var lineFrame = bottomLine.frame
-                lineFrame.origin.x = x + 5
+                lineFrame.origin.x = x + configuration.menuBottomlineOffset
                 lineFrame.size.width = w
                 bottomLine.frame = lineFrame
                 label.currentScale = 1.03
                 label.textColor = configuration.menuItemSelectedColor
             }
             
-            label.frame = CGRect(x: x, y: y, width: w + 10, height: h)
+            label.frame = CGRect(x: x, y: y, width: w + configuration.menuBottomlineOffset * 2, height: h)
         }
         scrollView.contentSize = CGSize(width: titleLabels.last!.frame.maxX + configuration.menuItemMargin * 0.5, height: 0)
     }
@@ -206,7 +206,7 @@ extension TLMenuView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        bottomLine.frame = CGRect(x: 0, y: self.frame.size.height - configuration.menuBottmonLineHeight - configuration.separatorLineHeight, width: 0, height: configuration.menuBottmonLineHeight)
+        bottomLine.frame = CGRect(x: 0, y: self.frame.size.height - configuration.menuBottomLineHeight - configuration.separatorLineHeight, width: 0, height: configuration.menuBottomLineHeight)
         
         var leftWidth : CGFloat = 0
         if let left = leftItem {
@@ -235,7 +235,9 @@ extension TLMenuView {
 
 // MARK: - 监听事件
 extension TLMenuView {
-    @objc private func titleLabelClick(_ tapGes: UITapGestureRecognizer) {
+    
+    @objc
+    private func titleLabelClick(_ tapGes: UITapGestureRecognizer) {
         // 取出用户点击的View
         let targetLabel = tapGes.view as! TLMenuLabel
         
@@ -269,8 +271,6 @@ extension TLMenuView {
             }
             return
         }
-        
-        
         
         // 2.切换文字的颜色
         targetLabel.textColor = configuration.menuItemSelectedColor

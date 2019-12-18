@@ -148,8 +148,10 @@ extension TLPageView {
                 configuration.menuHeight = value
             case let .menuItemFont(value):
                 configuration.menuItemFont = value
-            case let .menuBottmonLineHeight(value):
-                configuration.menuBottmonLineHeight = value
+            case let .menuBottomLineHeight(value):
+                configuration.menuBottomLineHeight = value
+            case let .menuBottomLineOffset(value):
+                configuration.menuBottomlineOffset = value
             case let .menuBottomLineColor(value):
                 configuration.menuBottomLineColor = value
             case let .menuItemColor(value):

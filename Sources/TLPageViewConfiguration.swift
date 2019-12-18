@@ -17,12 +17,13 @@ public class TLPageViewConfiguration {
     open var menuItemSelectedColor : UIColor = .red
     open var menuItemMargin : CGFloat = 5.0
     
-    open var menuBottmonLineHeight : CGFloat = 2
+    open var menuBottomLineHeight : CGFloat = 2
+    /// 线距离label的外边距 默认为5
+    open var menuBottomlineOffset : CGFloat = 5
     open var menuBottomLineColor : UIColor = .red
     
     open var leftItem :UIView? = nil
     open var rightItem : UIView? = nil
-    
     
     open var separatorLineColor : UIColor = UIColor(red: 245 / 255.0, green: 245 / 255.0, blue: 245 / 255.0, alpha: 1)
     open var separatorLineHeight : CGFloat = 1
